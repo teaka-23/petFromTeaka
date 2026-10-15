@@ -1,12 +1,12 @@
 // Telegram-бот: мемы (imgflip) и котики с описанием породы (TheCatAPI).
-// Логирует переписку в Supabase (таблица chat_messages).
+// Логирование переписки в Supabase отключено (флаг LOG_TO_DB в коде).
 //
 // Запуск:
 //   node bot.js        (токены читаются из .env или переменных окружения)
 //
 // Команды:
 //   /start, /help — справка
-//   /meme         — случайный мем (не повторяются)
+//   /meme         — случайный мем
 //   /cat          — случайный котик: фото + порода и факты
 //
 // Показанные мемы/породы бот вычисляет по собственному логу в базе
@@ -53,6 +53,9 @@ if (!TELEGRAM_TOKEN) {
   process.exit(1);
 }
 
+// Логирование переписки в Supabase (пока не нужно — поставить true, чтобы включить)
+const LOG_TO_DB = false;
+
 const SUPABASE_URL = process.env.SUPABASE_URL || "https://uugrjjgrvcbhprqxktol.supabase.co";
 const SUPABASE_ANON_KEY =
   process.env.SUPABASE_ANON_KEY ||
@@ -88,6 +91,7 @@ async function sb(path, options = {}) {
 }
 
 async function logMessage(username, message, senderType) {
+  if (!LOG_TO_DB) return;
   await sb("chat_messages", {
     method: "POST",
     body: JSON.stringify({ telegram_username: username, message, sender_type: senderType }),
@@ -96,6 +100,7 @@ async function logMessage(username, message, senderType) {
 
 // Показанные ботом маркеры вида "[мем: id]" / "[кот: id]" — из лога в базе
 async function shownMarkers() {
+  if (!LOG_TO_DB) return new Set(); // без лога в базе неоткуда узнать показанное
   const rows = await (await sb("chat_messages?select=message&sender_type=eq.bot&limit=10000")).json();
   return new Set(rows.map((r) => (r.message.match(/^\[(мем|кот): ([\w-]+)\]/) || []).slice(1).join(":")).filter(Boolean));
 }
@@ -133,7 +138,7 @@ async function cmdHelp(msg) {
     msg,
     [
       "Я умею:",
-      "• /meme — случайный мем (не повторяются)",
+      "• /meme — случайный мем",
       "• /cat — случайный котик: порода и интересные факты",
     ].join("\n")
   );
@@ -215,15 +220,21 @@ async function cmdCat(msg) {
   const pool = fresh.length ? fresh : breeds; // все породы показаны — повторяемся
   const breed = pool[Math.floor(Math.random() * pool.length)];
 
-  // Переводим описание и характер один раз, кэшируем в файле
+  // Переводим название, описание и характер один раз, кэшируем в файле
+  let cached = false;
+  if (!breed.name_ru) {
+    breed.name_ru = await translateToRu(breed.name);
+    cached = true;
+  }
   if (!breed.description_ru && breed.description) {
     breed.description_ru = await translateToRu(breed.description);
     breed.temperament_ru = await translateToRu(breed.temperament);
-    saveBreeds(breeds);
+    cached = true;
   }
+  if (cached) saveBreeds(breeds);
 
   const caption = [
-    `🐱 <b>${breed.name}</b>${breed.origin ? ` (${breed.origin})` : ""}`,
+    `🐱 <b>${breed.name}</b>${breed.name_ru ? ` — ${breed.name_ru}` : ""}${breed.origin ? ` (${breed.origin})` : ""}`,
     breed.temperament_ru ? `Характер: ${breed.temperament_ru}.` : "",
     breed.description_ru || breed.description || "",
   ]
@@ -290,7 +301,7 @@ async function poll(offset = 0) {
   botUsername = me.username || "bot";
   await tg("setMyCommands", {
     commands: [
-      { command: "meme", description: "Случайный мем (не повторяются)" },
+      { command: "meme", description: "Случайный мем" },
       { command: "cat", description: "Случайный котик: порода и факты" },
       { command: "help", description: "Справка" },
     ],

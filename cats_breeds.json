@@ -27,7 +27,8 @@
       "url": "https://cdn2.thecatapi.com/images/KWdLHmOqc.jpg",
       "width": 3114,
       "height": 2609
-    }
+    },
+    "name_ru": "Абиссинский"
   },
   {
     "id": "aege",
@@ -57,7 +58,8 @@
       "url": "https://cdn2.thecatapi.com/images/h19-vtIeX.jpg",
       "width": 4272,
       "height": 2848
-    }
+    },
+    "name_ru": "Эгейское море"
   },
   {
     "id": "abob",
@@ -89,7 +91,8 @@
       "height": 2411
     },
     "description_ru": "Средняя и крупная кошка с характерным, естественно, коротким хвостом, диким внешним видом и спортивным телосложением. Известен своей собачьей индивидуальностью и исключительным интеллектом.",
-    "temperament_ru": "Интеллектуальный, интерактивный, живой, игривый, чувствительный, преданный"
+    "temperament_ru": "Интеллектуальный, интерактивный, живой, игривый, чувствительный, преданный",
+    "name_ru": "американский бобтейл"
   },
   {
     "id": "acur",
@@ -119,7 +122,8 @@
       "url": "https://cdn2.thecatapi.com/images/ZZmFRKWZZ.jpg",
       "width": 1980,
       "height": 1355
-    }
+    },
+    "name_ru": "Американская керл"
   },
   {
     "id": "amer",
@@ -143,7 +147,8 @@
     "height": {
       "imperial": "9-12",
       "metric": "23-30"
-    }
+    },
+    "name_ru": "Американский рингтейл"
   },
   {
     "id": "asho",
@@ -173,7 +178,8 @@
       "url": "https://cdn2.thecatapi.com/images/MuEGe1-Sz.jpg",
       "width": 3000,
       "height": 2002
-    }
+    },
+    "name_ru": "·      <g id=\"1\">Американский короткий волос</g>"
   },
   {
     "id": "awir",
@@ -203,7 +209,8 @@
       "url": "https://cdn2.thecatapi.com/images/bTo6m3PVg.jpg",
       "width": 2000,
       "height": 1138
-    }
+    },
+    "name_ru": "American Wirehair"
   },
   {
     "id": "aphr",
@@ -227,7 +234,8 @@
     "height": {
       "imperial": "14-18",
       "metric": "36-46"
-    }
+    },
+    "name_ru": "Гигант Афродиты"
   },
   {
     "id": "amau",
@@ -257,7 +265,8 @@
       "url": "https://cdn2.thecatapi.com/images/zlpgGWqN7.jpg",
       "width": 3840,
       "height": 2400
-    }
+    },
+    "name_ru": "Arabian MAU"
   },
   {
     "id": "asia",
@@ -281,7 +290,8 @@
     "height": {
       "imperial": "9-11",
       "metric": "23-28"
-    }
+    },
+    "name_ru": "Азиатский полудлинношерстный"
   },
   {
     "id": "amis",
@@ -311,7 +321,8 @@
       "url": "https://cdn2.thecatapi.com/images/zTiuUpmqf.jpg",
       "width": 4553,
       "height": 3036
-    }
+    },
+    "name_ru": "Австралийский туман"
   },
   {
     "id": "bali",
@@ -341,7 +352,8 @@
       "url": "https://cdn2.thecatapi.com/images/obRjvWv-e.jpg",
       "width": 2560,
       "height": 1600
-    }
+    },
+    "name_ru": "Балийский"
   },
   {
     "id": "bamb",
@@ -371,7 +383,8 @@
       "url": "https://cdn2.thecatapi.com/images/Oaoo1ky3A.jpg",
       "width": 3878,
       "height": 2771
-    }
+    },
+    "name_ru": "Bambino"
   },
   {
     "id": "beng",
@@ -401,7 +414,8 @@
       "url": "https://cdn2.thecatapi.com/images/dN6eoeLjY.jpg",
       "width": 3648,
       "height": 2736
-    }
+    },
+    "name_ru": "Бенгалия"
   },
   {
     "id": "birm",
@@ -431,7 +445,8 @@
       "url": "https://cdn2.thecatapi.com/images/ln1Ks7VIu.jpg",
       "width": 4032,
       "height": 3024
-    }
+    },
+    "name_ru": "Бирманская кошка"
   },
   {
     "id": "bomb",
@@ -463,7 +478,8 @@
       "height": 1080
     },
     "description_ru": "Среднего размера, мускулистый чернокожий кот с яркими медными или золотистыми глазами. Порода напоминает миниатюрную черную пантеру с гладким пальто из лакированной кожи.",
-    "temperament_ru": "Ласковый, Зависимый, Нежный, Умный, Игривый, Социальный"
+    "temperament_ru": "Ласковый, Зависимый, Нежный, Умный, Игривый, Социальный",
+    "name_ru": "Мумбаи"
   },
   {
     "id": "braz",
@@ -487,7 +503,8 @@
     "height": {
       "imperial": "9-11",
       "metric": "23-28"
-    }
+    },
+    "name_ru": "Бразильская короткошерстная кошка"
   },
   {
     "id": "bslo",
@@ -517,7 +534,8 @@
       "url": "https://cdn2.thecatapi.com/images/re7uO34hz.jpg",
       "width": 1600,
       "height": 2397
-    }
+    },
+    "name_ru": "Британский длинношерстный"
   },
   {
     "id": "bsho",
@@ -547,7 +565,8 @@
       "url": "https://cdn2.thecatapi.com/images/HYTJQgs2M.jpg",
       "width": 3264,
       "height": 2448
-    }
+    },
+    "name_ru": "Британский короткошерстный кот"
   },
   {
     "id": "brit",
@@ -571,7 +590,8 @@
     "height": {
       "imperial": "12-15",
       "metric": "30-38"
-    }
+    },
+    "name_ru": "Британские чаевые"
   },
   {
     "id": "bure",
@@ -601,7 +621,8 @@
       "url": "https://cdn2.thecatapi.com/images/92D9NZLs0.jpg",
       "width": 3260,
       "height": 1685
-    }
+    },
+    "name_ru": "Бирманский"
   },
   {
     "id": "buri",
@@ -631,7 +652,8 @@
       "url": "https://cdn2.thecatapi.com/images/J4Jv10E7O.jpg",
       "width": 4608,
       "height": 3072
-    }
+    },
+    "name_ru": "Бурмилла:"
   },
   {
     "id": "burm",
@@ -655,7 +677,8 @@
     "height": {
       "imperial": "10-12",
       "metric": "25-30"
-    }
+    },
+    "name_ru": "Бурмуар"
   },
   {
     "id": "cspa",
@@ -685,7 +708,8 @@
       "url": "https://cdn2.thecatapi.com/images/B1ERTmgph.jpg",
       "width": 1200,
       "height": 688
-    }
+    },
+    "name_ru": "California Spangled"
   },
   {
     "id": "cara",
@@ -709,7 +733,8 @@
     "height": {
       "imperial": "Active, Intelligent, Independent, Athletic, Alert",
       "metric": "Requires experienced exotic owners only. Not suitable for typical families."
-    }
+    },
+    "name_ru": "Каракат"
   },
   {
     "id": "ctif",
@@ -739,7 +764,8 @@
       "url": "https://cdn2.thecatapi.com/images/TR-5nAd_S.jpg",
       "width": 2901,
       "height": 2938
-    }
+    },
+    "name_ru": "Шантийи-Тиффани"
   },
   {
     "id": "char",
@@ -769,7 +795,8 @@
       "url": "https://cdn2.thecatapi.com/images/3-DZDkDGa.jpg",
       "width": 4272,
       "height": 2848
-    }
+    },
+    "name_ru": "Шартрё"
   },
   {
     "id": "chau",
@@ -799,7 +826,8 @@
       "url": "https://cdn2.thecatapi.com/images/snxE5_PPX.jpg",
       "width": 3888,
       "height": 2592
-    }
+    },
+    "name_ru": "Чаузи"
   },
   {
     "id": "chas",
@@ -823,7 +851,8 @@
     "height": {
       "imperial": "14-18",
       "metric": "36-46"
-    }
+    },
+    "name_ru": "Чаузи"
   },
   {
     "id": "chee",
@@ -853,7 +882,8 @@
       "url": "https://cdn2.thecatapi.com/images/L-aDi29wP.jpg",
       "width": 3264,
       "height": 2448
-    }
+    },
+    "name_ru": "Чито"
   },
   {
     "id": "csho",
@@ -883,7 +913,8 @@
       "url": "https://cdn2.thecatapi.com/images/lOl0J96On.jpg",
       "width": 2448,
       "height": 3264
-    }
+    },
+    "name_ru": "Краткое прическа Colorpoint"
   },
   {
     "id": "crex",
@@ -913,7 +944,8 @@
       "url": "https://cdn2.thecatapi.com/images/o81wWm6-Z.jpg",
       "width": 3006,
       "height": 2442
-    }
+    },
+    "name_ru": "Корниш-Рекс"
   },
   {
     "id": "cymr",
@@ -943,7 +975,8 @@
       "url": "https://cdn2.thecatapi.com/images/GQ61BDToD.jpg",
       "width": 3504,
       "height": 2336
-    }
+    },
+    "name_ru": "Cymric"
   },
   {
     "id": "cypr",
@@ -973,7 +1006,8 @@
       "url": "https://cdn2.thecatapi.com/images/S97Qj5YYO.jpg",
       "width": 3318,
       "height": 2212
-    }
+    },
+    "name_ru": "Кипр"
   },
   {
     "id": "drex",
@@ -1003,7 +1037,8 @@
       "url": "https://cdn2.thecatapi.com/images/lJHXU7DlQ.jpg",
       "width": 3264,
       "height": 2448
-    }
+    },
+    "name_ru": "Девон Рекс"
   },
   {
     "id": "doml",
@@ -1027,7 +1062,8 @@
     "height": {
       "imperial": "8-14",
       "metric": "20-36"
-    }
+    },
+    "name_ru": "Домашний длинношерстный"
   },
   {
     "id": "domm",
@@ -1051,7 +1087,8 @@
     "height": {
       "imperial": "8-14",
       "metric": "20-36"
-    }
+    },
+    "name_ru": "Домашний средний волос"
   },
   {
     "id": "doms",
@@ -1075,7 +1112,8 @@
     "height": {
       "imperial": "8-14",
       "metric": "20-36"
-    }
+    },
+    "name_ru": "Домашняя короткошерстная кошка"
   },
   {
     "id": "dons",
@@ -1105,7 +1143,8 @@
       "url": "https://cdn2.thecatapi.com/images/Z9zxhFVdw.jpg",
       "width": 3789,
       "height": 2873
-    }
+    },
+    "name_ru": "Донской"
   },
   {
     "id": "lihu",
@@ -1135,7 +1174,8 @@
       "url": "https://cdn2.thecatapi.com/images/KrDYENsA3.jpg",
       "width": 1080,
       "height": 1350
-    }
+    },
+    "name_ru": "Дракон Ли"
   },
   {
     "id": "dwel",
@@ -1159,7 +1199,8 @@
     "height": {
       "imperial": "Friendly, Social, Intelligent, Playful, Affectionate",
       "metric": "Good with families, loves attention and interaction."
-    }
+    },
+    "name_ru": "Dwelf"
   },
   {
     "id": "emau",
@@ -1189,7 +1230,8 @@
       "url": "https://cdn2.thecatapi.com/images/4_AdeyZUv.jpg",
       "width": 3888,
       "height": 2592
-    }
+    },
+    "name_ru": "Египетское мау"
   },
   {
     "id": "elfc",
@@ -1213,7 +1255,8 @@
     "height": {
       "imperial": "Affectionate, Intelligent, Playful, Social, Friendly",
       "metric": "Good with families, loves attention and cuddling."
-    }
+    },
+    "name_ru": "Эльфийская кошка"
   },
   {
     "id": "ebur",
@@ -1243,7 +1286,8 @@
       "url": "https://cdn2.thecatapi.com/images/YOjBThApG.jpg",
       "width": 2838,
       "height": 4518
-    }
+    },
+    "name_ru": "Европейская бирманская кухня"
   },
   {
     "id": "eshr",
@@ -1267,7 +1311,8 @@
     "height": {
       "imperial": "11-13",
       "metric": "28-33"
-    }
+    },
+    "name_ru": "Европейская короткошерстная /"
   },
   {
     "id": "exlh",
@@ -1291,7 +1336,8 @@
     "height": {
       "imperial": "10-13",
       "metric": "25-33"
-    }
+    },
+    "name_ru": "Экзотический длинношерстный"
   },
   {
     "id": "esho",
@@ -1323,7 +1369,8 @@
       "height": 2610
     },
     "description_ru": "Средне-большой кот-коби с персидскими чертами, но короткой плюшевой шерстью. Известен как «персидский ленивца» для более легкого ухода.",
-    "temperament_ru": "Ласковый, сладкий, верный, тихий, спокойный, нежный, спокойный"
+    "temperament_ru": "Ласковый, сладкий, верный, тихий, спокойный, нежный, спокойный",
+    "name_ru": "Экзотическая короткошерстная кошка"
   },
   {
     "id": "fold",
@@ -1347,7 +1394,8 @@
     "height": {
       "imperial": "9-11",
       "metric": "23-28"
-    }
+    },
+    "name_ru": "Foldex"
   },
   {
     "id": "gene",
@@ -1371,7 +1419,8 @@
     "height": {
       "imperial": "7-10",
       "metric": "18-25"
-    }
+    },
+    "name_ru": "Genetta"
   },
   {
     "id": "germ",
@@ -1395,7 +1444,8 @@
     "height": {
       "imperial": "9-11",
       "metric": "23-28"
-    }
+    },
+    "name_ru": "Немецкий рекс"
   },
   {
     "id": "hbro",
@@ -1425,7 +1475,8 @@
       "url": "https://cdn2.thecatapi.com/images/gQggWSR5I.jpg",
       "width": 4081,
       "height": 2721
-    }
+    },
+    "name_ru": "Havana Brown"
   },
   {
     "id": "high",
@@ -1449,7 +1500,8 @@
     "height": {
       "imperial": "12-16",
       "metric": "30-41"
-    }
+    },
+    "name_ru": "Горец"
   },
   {
     "id": "hima",
@@ -1479,7 +1531,8 @@
       "url": "https://cdn2.thecatapi.com/images/KBjPMWOsK.jpg",
       "width": 5797,
       "height": 3854
-    }
+    },
+    "name_ru": "Гималайская кухня"
   },
   {
     "id": "jbob",
@@ -1509,7 +1562,8 @@
       "url": "https://cdn2.thecatapi.com/images/Sw_EWWLW-.jpg",
       "width": 3949,
       "height": 3949
-    }
+    },
+    "name_ru": "Японский бобтейл"
   },
   {
     "id": "java",
@@ -1539,7 +1593,8 @@
       "url": "https://cdn2.thecatapi.com/images/BTiGuPOqW.jpg",
       "width": 3264,
       "height": 2448
-    }
+    },
+    "name_ru": "Яванский"
   },
   {
     "id": "kana",
@@ -1563,7 +1618,8 @@
     "height": {
       "imperial": "12-15",
       "metric": "30-38"
-    }
+    },
+    "name_ru": "Канаани"
   },
   {
     "id": "kell",
@@ -1587,7 +1643,8 @@
     "height": {
       "imperial": "Wild, Independent, Elusive, Athletic",
       "metric": "Not appropriate as a pet. Wild hybrid."
-    }
+    },
+    "name_ru": "Kellas Cat"
   },
   {
     "id": "khao",
@@ -1617,7 +1674,8 @@
       "url": "https://cdn2.thecatapi.com/images/iyFN2mF8l.jpg",
       "width": 1858,
       "height": 1565
-    }
+    },
+    "name_ru": "Као-мани"
   },
   {
     "id": "kora",
@@ -1647,7 +1705,8 @@
       "url": "https://cdn2.thecatapi.com/images/1TcC-kiI1.jpg",
       "width": 1080,
       "height": 1350
-    }
+    },
+    "name_ru": "КоратCity name (optional, probably does not need a translation)"
   },
   {
     "id": "kuri",
@@ -1677,7 +1736,8 @@
       "url": "https://cdn2.thecatapi.com/images/NZpO4pU56M.jpg",
       "width": 750,
       "height": 750
-    }
+    },
+    "name_ru": "Курильский бобтейл"
   },
   {
     "id": "lape",
@@ -1707,7 +1767,8 @@
       "url": "https://cdn2.thecatapi.com/images/in-CD5LH5.jpg",
       "width": 4256,
       "height": 2832
-    }
+    },
+    "name_ru": "LaPerm"
   },
   {
     "id": "lyko",
@@ -1731,7 +1792,8 @@
     "height": {
       "imperial": "10-12",
       "metric": "25-30"
-    }
+    },
+    "name_ru": "Лыкой"
   },
   {
     "id": "mcoo",
@@ -1761,7 +1823,8 @@
       "url": "https://cdn2.thecatapi.com/images/jyjEWK7xp.jpg",
       "width": 3144,
       "height": 2448
-    }
+    },
+    "name_ru": "Мейн-кун"
   },
   {
     "id": "mala",
@@ -1785,7 +1848,8 @@
     "height": {
       "imperial": "10-12",
       "metric": "25-30"
-    }
+    },
+    "name_ru": "Малайский"
   },
   {
     "id": "manx",
@@ -1815,7 +1879,8 @@
       "url": "https://cdn2.thecatapi.com/images/i9HsL15nJ.jpg",
       "width": 3024,
       "height": 4032
-    }
+    },
+    "name_ru": "Мэнский"
   },
   {
     "id": "mins",
@@ -1839,7 +1904,8 @@
     "height": {
       "imperial": "6-9",
       "metric": "15-23"
-    }
+    },
+    "name_ru": "Минскин"
   },
   {
     "id": "minu",
@@ -1863,7 +1929,8 @@
     "height": {
       "imperial": "7-9",
       "metric": "18-23"
-    }
+    },
+    "name_ru": "Minuet"
   },
   {
     "id": "munc",
@@ -1893,7 +1960,8 @@
       "url": "https://cdn2.thecatapi.com/images/vDFI6jI2O.jpg",
       "width": 3555,
       "height": 3031
-    }
+    },
+    "name_ru": "Munchkkin"
   },
   {
     "id": "napo",
@@ -1917,7 +1985,8 @@
     "height": {
       "imperial": "Charming, Gentle, Curious, Affectionate, Sweet",
       "metric": "Excellent with families, very loving and gentle."
-    }
+    },
+    "name_ru": "Наполеон Лонгхэр"
   },
   {
     "id": "nebe",
@@ -1947,7 +2016,8 @@
       "url": "https://cdn2.thecatapi.com/images/KpHqQPUPW.jpg",
       "width": 3024,
       "height": 4032
-    }
+    },
+    "name_ru": "Небелунг"
   },
   {
     "id": "norw",
@@ -1977,7 +2047,8 @@
       "url": "https://cdn2.thecatapi.com/images/rBuGgH_Wj.jpg",
       "width": 3840,
       "height": 2160
-    }
+    },
+    "name_ru": "Норвежский лесной кот"
   },
   {
     "id": "ocic",
@@ -2007,7 +2078,8 @@
       "url": "https://cdn2.thecatapi.com/images/HksHrR8-9.jpg",
       "width": 3704,
       "height": 2469
-    }
+    },
+    "name_ru": "Ocicat"
   },
   {
     "id": "ojos",
@@ -2031,7 +2103,8 @@
     "height": {
       "imperial": "9-11",
       "metric": "23-28"
-    }
+    },
+    "name_ru": "Ojos Azules"
   },
   {
     "id": "ori1",
@@ -2055,7 +2128,8 @@
     "height": {
       "imperial": "10-14",
       "metric": "25-36"
-    }
+    },
+    "name_ru": "Восточный длинношерстный"
   },
   {
     "id": "orie",
@@ -2085,7 +2159,8 @@
       "url": "https://cdn2.thecatapi.com/images/xbW2bsXfK.jpg",
       "width": 2448,
       "height": 3264
-    }
+    },
+    "name_ru": "Восточная короткошерстная кошка"
   },
   {
     "id": "pant",
@@ -2109,7 +2184,8 @@
     "height": {
       "imperial": "Active, Intelligent, Playful, Affectionate, Social",
       "metric": "Good with active families, playful and friendly."
-    }
+    },
+    "name_ru": "Pantherette"
   },
   {
     "id": "pers",
@@ -2139,7 +2215,8 @@
       "url": "https://cdn2.thecatapi.com/images/Pqtwt4FCq.jpg",
       "width": 3864,
       "height": 2577
-    }
+    },
+    "name_ru": "Персидский"
   },
   {
     "id": "pete",
@@ -2163,7 +2240,8 @@
     "height": {
       "imperial": "10-14",
       "metric": "25-36"
-    }
+    },
+    "name_ru": "Петербальд"
   },
   {
     "id": "pixi",
@@ -2193,7 +2271,8 @@
       "url": "https://cdn2.thecatapi.com/images/fAYgJmLM8.jpg",
       "width": 3072,
       "height": 2304
-    }
+    },
+    "name_ru": "Пикси-боб"
   },
   {
     "id": "poly",
@@ -2217,7 +2296,8 @@
     "height": {
       "imperial": "Variable",
       "metric": "Variable"
-    }
+    },
+    "name_ru": "Полидактил"
   },
   {
     "id": "raas",
@@ -2241,7 +2321,8 @@
     "height": {
       "imperial": "10-14",
       "metric": "25-36"
-    }
+    },
+    "name_ru": "Раас"
   },
   {
     "id": "raga",
@@ -2271,7 +2352,8 @@
       "url": "https://cdn2.thecatapi.com/images/SMuZx-bFM.jpg",
       "width": 3000,
       "height": 2000
-    }
+    },
+    "name_ru": "Рагамаффин"
   },
   {
     "id": "ragd",
@@ -2301,7 +2383,8 @@
       "url": "https://cdn2.thecatapi.com/images/80kGxlgR1.jpg",
       "width": 4272,
       "height": 2848
-    }
+    },
+    "name_ru": "Рэгдолл"
   },
   {
     "id": "rblu",
@@ -2331,7 +2414,8 @@
       "url": "https://cdn2.thecatapi.com/images/S-1YzA7-_.jpg",
       "width": 3888,
       "height": 2592
-    }
+    },
+    "name_ru": "русская голубая"
   },
   {
     "id": "safa",
@@ -2355,7 +2439,8 @@
     "height": {
       "imperial": "14-18",
       "metric": "36-46"
-    }
+    },
+    "name_ru": "Safari"
   },
   {
     "id": "sava",
@@ -2385,7 +2470,8 @@
       "url": "https://cdn2.thecatapi.com/images/qf6MhNS8z.jpg",
       "width": 4032,
       "height": 3024
-    }
+    },
+    "name_ru": "Саванна"
   },
   {
     "id": "sfol",
@@ -2415,7 +2501,8 @@
       "url": "https://cdn2.thecatapi.com/images/dkN5wGUxC.jpg",
       "width": 4272,
       "height": 2848
-    }
+    },
+    "name_ru": "Шотландская вислоухая кошка"
   },
   {
     "id": "srex",
@@ -2445,7 +2532,8 @@
       "url": "https://cdn2.thecatapi.com/images/B2YB13Ydq.jpg",
       "width": 3447,
       "height": 2290
-    }
+    },
+    "name_ru": "Selkirk Rex"
   },
   {
     "id": "sere",
@@ -2469,7 +2557,8 @@
     "height": {
       "imperial": "12-15",
       "metric": "30-38"
-    }
+    },
+    "name_ru": "Серенгети"
   },
   {
     "id": "siam",
@@ -2499,7 +2588,8 @@
       "url": "https://cdn2.thecatapi.com/images/Xwp-MBOtI.jpg",
       "width": 3225,
       "height": 2419
-    }
+    },
+    "name_ru": "Сиамский"
   },
   {
     "id": "sibe",
@@ -2529,7 +2619,8 @@
       "url": "https://cdn2.thecatapi.com/images/IJyPTBLyU.jpg",
       "width": 5401,
       "height": 3601
-    }
+    },
+    "name_ru": "Сибирский"
   },
   {
     "id": "sing",
@@ -2559,7 +2650,8 @@
       "url": "https://cdn2.thecatapi.com/images/GOvziuOyw.jpg",
       "width": 3309,
       "height": 2482
-    }
+    },
+    "name_ru": "Сингапура"
   },
   {
     "id": "sinp",
@@ -2583,7 +2675,8 @@
     "height": {
       "imperial": "Affectionate, Curious, Intelligent, Lively, Playful",
       "metric": "Excellent with families, loves attention. Great with children."
-    }
+    },
+    "name_ru": "Singapura Tabby"
   },
   {
     "id": "skoo",
@@ -2607,7 +2700,8 @@
     "height": {
       "imperial": "6-9",
       "metric": "15-23"
-    }
+    },
+    "name_ru": "Skookum"
   },
   {
     "id": "snow",
@@ -2637,7 +2731,8 @@
       "url": "https://cdn2.thecatapi.com/images/BB18hZT2z.jpg",
       "width": 2909,
       "height": 2126
-    }
+    },
+    "name_ru": "Снегоступы"
   },
   {
     "id": "soko",
@@ -2661,7 +2756,8 @@
     "height": {
       "imperial": "9-12",
       "metric": "23-30"
-    }
+    },
+    "name_ru": "Сококе"
   },
   {
     "id": "soma",
@@ -2691,7 +2787,8 @@
       "url": "https://cdn2.thecatapi.com/images/yLnM69IIz.jpg",
       "width": 4368,
       "height": 2912
-    }
+    },
+    "name_ru": "Сомалийский"
   },
   {
     "id": "sphy",
@@ -2721,7 +2818,8 @@
       "url": "https://cdn2.thecatapi.com/images/2hPNn0Wrr.jpg",
       "width": 3840,
       "height": 2160
-    }
+    },
+    "name_ru": "Сфинкс"
   },
   {
     "id": "suph",
@@ -2745,7 +2843,8 @@
     "height": {
       "imperial": "10-12",
       "metric": "25-30"
-    }
+    },
+    "name_ru": "Суфалак"
   },
   {
     "id": "thai",
@@ -2769,7 +2868,8 @@
     "height": {
       "imperial": "10-12",
       "metric": "25-30"
-    }
+    },
+    "name_ru": "Тайский"
   },
   {
     "id": "tonk",
@@ -2799,7 +2899,8 @@
       "url": "https://cdn2.thecatapi.com/images/TYQKhQ3mn.jpg",
       "width": 1440,
       "height": 1440
-    }
+    },
+    "name_ru": "Тонкинский"
   },
   {
     "id": "toyb",
@@ -2823,7 +2924,8 @@
     "height": {
       "imperial": "6-8",
       "metric": "15-20"
-    }
+    },
+    "name_ru": "Toybob"
   },
   {
     "id": "toyg",
@@ -2853,7 +2955,8 @@
       "url": "https://cdn2.thecatapi.com/images/Ba-qRZ_8n.jpg",
       "width": 2736,
       "height": 1824
-    }
+    },
+    "name_ru": "Toyger"
   },
   {
     "id": "tang",
@@ -2883,7 +2986,8 @@
       "url": "https://cdn2.thecatapi.com/images/KU_LUntSX.jpg",
       "width": 2634,
       "height": 3399
-    }
+    },
+    "name_ru": "Турецкая ангора"
   },
   {
     "id": "tvan",
@@ -2913,7 +3017,8 @@
       "url": "https://cdn2.thecatapi.com/images/NHiuHD4Ax.jpg",
       "width": 1656,
       "height": 2208
-    }
+    },
+    "name_ru": "Турецкий фургон"
   },
   {
     "id": "ukra",
@@ -2937,7 +3042,8 @@
     "height": {
       "imperial": "10-12",
       "metric": "25-30"
-    }
+    },
+    "name_ru": "Украинский Левкой"
   },
   {
     "id": "ycho",
@@ -2967,6 +3073,7 @@
       "url": "https://cdn2.thecatapi.com/images/xIICfnlNm.jpg",
       "width": 1696,
       "height": 2544
-    }
+    },
+    "name_ru": "Шоколадный кот Йорк"
   }
 ]
