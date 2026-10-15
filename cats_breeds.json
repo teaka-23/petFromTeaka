@@ -148,7 +148,8 @@
       "imperial": "9-12",
       "metric": "23-30"
     },
-    "name_ru": "Американский рингтейл"
+    "name_ru": "Американский рингтейл",
+    "no_image": true
   },
   {
     "id": "asho",
@@ -235,7 +236,8 @@
       "imperial": "14-18",
       "metric": "36-46"
     },
-    "name_ru": "Гигант Афродиты"
+    "name_ru": "Гигант Афродиты",
+    "no_image": true
   },
   {
     "id": "amau",
@@ -291,7 +293,10 @@
       "imperial": "9-11",
       "metric": "23-28"
     },
-    "name_ru": "Азиатский полудлинношерстный"
+    "name_ru": "Азиатский полудлинношерстный",
+    "description_ru": "Среднеразмерная элегантная кошка с полудлинной шелковистой шерстью и изящным внешним видом. Относится к бирманцам с более длинной шерстью.",
+    "temperament_ru": "Активный, любознательный, нежный, ласковый, социальный",
+    "no_image": true
   },
   {
     "id": "amis",
@@ -504,7 +509,8 @@
       "imperial": "9-11",
       "metric": "23-28"
     },
-    "name_ru": "Бразильская короткошерстная кошка"
+    "name_ru": "Бразильская короткошерстная кошка",
+    "no_image": true
   },
   {
     "id": "bslo",
@@ -591,7 +597,8 @@
       "imperial": "12-15",
       "metric": "30-38"
     },
-    "name_ru": "Британские чаевые"
+    "name_ru": "Британские чаевые",
+    "no_image": true
   },
   {
     "id": "bure",
@@ -678,7 +685,8 @@
       "imperial": "10-12",
       "metric": "25-30"
     },
-    "name_ru": "Бурмуар"
+    "name_ru": "Бурмуар",
+    "no_image": true
   },
   {
     "id": "cspa",
@@ -734,7 +742,8 @@
       "imperial": "Active, Intelligent, Independent, Athletic, Alert",
       "metric": "Requires experienced exotic owners only. Not suitable for typical families."
     },
-    "name_ru": "Каракат"
+    "name_ru": "Каракат",
+    "no_image": true
   },
   {
     "id": "ctif",
@@ -827,7 +836,9 @@
       "width": 3888,
       "height": 2592
     },
-    "name_ru": "Чаузи"
+    "name_ru": "Чаузи",
+    "description_ru": "Большая, спортивная гибридная кошка с дикой внешностью, полученная из предков джунглевых кошек. Длинноногие и мускулистые с пучковыми ушами.",
+    "temperament_ru": "Ласковый, умный, игривый, социальный, активный, спортивный, лояльный"
   },
   {
     "id": "chas",
@@ -852,7 +863,8 @@
       "imperial": "14-18",
       "metric": "36-46"
     },
-    "name_ru": "Чаузи"
+    "name_ru": "Чаузи",
+    "no_image": true
   },
   {
     "id": "chee",
@@ -1063,7 +1075,8 @@
       "imperial": "8-14",
       "metric": "20-36"
     },
-    "name_ru": "Домашний длинношерстный"
+    "name_ru": "Домашний длинношерстный",
+    "no_image": true
   },
   {
     "id": "domm",
@@ -1088,7 +1101,8 @@
       "imperial": "8-14",
       "metric": "20-36"
     },
-    "name_ru": "Домашний средний волос"
+    "name_ru": "Домашний средний волос",
+    "no_image": true
   },
   {
     "id": "doms",
@@ -1113,7 +1127,8 @@
       "imperial": "8-14",
       "metric": "20-36"
     },
-    "name_ru": "Домашняя короткошерстная кошка"
+    "name_ru": "Домашняя короткошерстная кошка",
+    "no_image": true
   },
   {
     "id": "dons",
@@ -1200,7 +1215,8 @@
       "imperial": "Friendly, Social, Intelligent, Playful, Affectionate",
       "metric": "Good with families, loves attention and interaction."
     },
-    "name_ru": "Dwelf"
+    "name_ru": "Dwelf",
+    "no_image": true
   },
   {
     "id": "emau",
@@ -1256,7 +1272,8 @@
       "imperial": "Affectionate, Intelligent, Playful, Social, Friendly",
       "metric": "Good with families, loves attention and cuddling."
     },
-    "name_ru": "Эльфийская кошка"
+    "name_ru": "Эльфийская кошка",
+    "no_image": true
   },
   {
     "id": "ebur",
@@ -1312,7 +1329,8 @@
       "imperial": "11-13",
       "metric": "28-33"
     },
-    "name_ru": "Европейская короткошерстная /"
+    "name_ru": "Европейская короткошерстная /",
+    "no_image": true
   },
   {
     "id": "exlh",
@@ -1337,7 +1355,8 @@
       "imperial": "10-13",
       "metric": "25-33"
     },
-    "name_ru": "Экзотический длинношерстный"
+    "name_ru": "Экзотический длинношерстный",
+    "no_image": true
   },
   {
     "id": "esho",
@@ -1395,7 +1414,8 @@
       "imperial": "9-11",
       "metric": "23-28"
     },
-    "name_ru": "Foldex"
+    "name_ru": "Foldex",
+    "no_image": true
   },
   {
     "id": "gene",
@@ -1420,7 +1440,8 @@
       "imperial": "7-10",
       "metric": "18-25"
     },
-    "name_ru": "Genetta"
+    "name_ru": "Genetta",
+    "no_image": true
   },
   {
     "id": "germ",
@@ -1445,7 +1466,10 @@
       "imperial": "9-11",
       "metric": "23-28"
     },
-    "name_ru": "Немецкий рекс"
+    "name_ru": "Немецкий рекс",
+    "description_ru": "Кошка среднего размера с волнистой шерстью, похожей на другие породы рексов. Стройное телосложение с большими ушами.",
+    "temperament_ru": "Дружелюбный, умный, игривый, ласковый, активный",
+    "no_image": true
   },
   {
     "id": "hbro",
@@ -1501,7 +1525,8 @@
       "imperial": "12-16",
       "metric": "30-41"
     },
-    "name_ru": "Горец"
+    "name_ru": "Горец",
+    "no_image": true
   },
   {
     "id": "hima",
@@ -1563,7 +1588,9 @@
       "width": 3949,
       "height": 3949
     },
-    "name_ru": "Японский бобтейл"
+    "name_ru": "Японский бобтейл",
+    "description_ru": "Кошка среднего размера с характерным помпоном и элегантным стройным телосложением. Традиционная японская порода.",
+    "temperament_ru": "Активный, гибкий, умный, легкий, умный, живой, лояльный, игривый, социальный"
   },
   {
     "id": "java",
@@ -1619,7 +1646,8 @@
       "imperial": "12-15",
       "metric": "30-38"
     },
-    "name_ru": "Канаани"
+    "name_ru": "Канаани",
+    "no_image": true
   },
   {
     "id": "kell",
@@ -1644,7 +1672,8 @@
       "imperial": "Wild, Independent, Elusive, Athletic",
       "metric": "Not appropriate as a pet. Wild hybrid."
     },
-    "name_ru": "Kellas Cat"
+    "name_ru": "Kellas Cat",
+    "no_image": true
   },
   {
     "id": "khao",
@@ -1793,7 +1822,8 @@
       "imperial": "10-12",
       "metric": "25-30"
     },
-    "name_ru": "Лыкой"
+    "name_ru": "Лыкой",
+    "no_image": true
   },
   {
     "id": "mcoo",
@@ -1849,7 +1879,8 @@
       "imperial": "10-12",
       "metric": "25-30"
     },
-    "name_ru": "Малайский"
+    "name_ru": "Малайский",
+    "no_image": true
   },
   {
     "id": "manx",
@@ -1905,7 +1936,8 @@
       "imperial": "6-9",
       "metric": "15-23"
     },
-    "name_ru": "Минскин"
+    "name_ru": "Минскин",
+    "no_image": true
   },
   {
     "id": "minu",
@@ -1930,7 +1962,8 @@
       "imperial": "7-9",
       "metric": "18-23"
     },
-    "name_ru": "Minuet"
+    "name_ru": "Minuet",
+    "no_image": true
   },
   {
     "id": "munc",
@@ -1986,7 +2019,8 @@
       "imperial": "Charming, Gentle, Curious, Affectionate, Sweet",
       "metric": "Excellent with families, very loving and gentle."
     },
-    "name_ru": "Наполеон Лонгхэр"
+    "name_ru": "Наполеон Лонгхэр",
+    "no_image": true
   },
   {
     "id": "nebe",
@@ -2048,7 +2082,9 @@
       "width": 3840,
       "height": 2160
     },
-    "name_ru": "Норвежский лесной кот"
+    "name_ru": "Норвежский лесной кот",
+    "description_ru": "Большой, крепкий кот с длинной, водостойкой двойной шерстью и крепким телосложением. Природная порода, адаптированная к холодному норвежскому климату.",
+    "temperament_ru": "Сладкий, активный, умный, социальный, игривый, живой, любопытный, независимый"
   },
   {
     "id": "ocic",
@@ -2104,7 +2140,8 @@
       "imperial": "9-11",
       "metric": "23-28"
     },
-    "name_ru": "Ojos Azules"
+    "name_ru": "Ojos Azules",
+    "no_image": true
   },
   {
     "id": "ori1",
@@ -2129,7 +2166,8 @@
       "imperial": "10-14",
       "metric": "25-36"
     },
-    "name_ru": "Восточный длинношерстный"
+    "name_ru": "Восточный длинношерстный",
+    "no_image": true
   },
   {
     "id": "orie",
@@ -2185,7 +2223,8 @@
       "imperial": "Active, Intelligent, Playful, Affectionate, Social",
       "metric": "Good with active families, playful and friendly."
     },
-    "name_ru": "Pantherette"
+    "name_ru": "Pantherette",
+    "no_image": true
   },
   {
     "id": "pers",
@@ -2241,7 +2280,8 @@
       "imperial": "10-14",
       "metric": "25-36"
     },
-    "name_ru": "Петербальд"
+    "name_ru": "Петербальд",
+    "no_image": true
   },
   {
     "id": "pixi",
@@ -2297,7 +2337,8 @@
       "imperial": "Variable",
       "metric": "Variable"
     },
-    "name_ru": "Полидактил"
+    "name_ru": "Полидактил",
+    "no_image": true
   },
   {
     "id": "raas",
@@ -2322,7 +2363,8 @@
       "imperial": "10-14",
       "metric": "25-36"
     },
-    "name_ru": "Раас"
+    "name_ru": "Раас",
+    "no_image": true
   },
   {
     "id": "raga",
@@ -2440,7 +2482,10 @@
       "imperial": "14-18",
       "metric": "36-46"
     },
-    "name_ru": "Safari"
+    "name_ru": "Safari",
+    "description_ru": "Крупная гибридная кошка, скрещенная с кошкой Жоффруа и домашними породами. Редкий с диким внешним видом.",
+    "temperament_ru": "Интеллектуальный, активный, ласковый, любознательный, независимый",
+    "no_image": true
   },
   {
     "id": "sava",
@@ -2558,7 +2603,8 @@
       "imperial": "12-15",
       "metric": "30-38"
     },
-    "name_ru": "Серенгети"
+    "name_ru": "Серенгети",
+    "no_image": true
   },
   {
     "id": "siam",
@@ -2676,7 +2722,8 @@
       "imperial": "Affectionate, Curious, Intelligent, Lively, Playful",
       "metric": "Excellent with families, loves attention. Great with children."
     },
-    "name_ru": "Singapura Tabby"
+    "name_ru": "Singapura Tabby",
+    "no_image": true
   },
   {
     "id": "skoo",
@@ -2701,7 +2748,8 @@
       "imperial": "6-9",
       "metric": "15-23"
     },
-    "name_ru": "Skookum"
+    "name_ru": "Skookum",
+    "no_image": true
   },
   {
     "id": "snow",
@@ -2757,7 +2805,8 @@
       "imperial": "9-12",
       "metric": "23-30"
     },
-    "name_ru": "Сококе"
+    "name_ru": "Сококе",
+    "no_image": true
   },
   {
     "id": "soma",
@@ -2844,7 +2893,8 @@
       "imperial": "10-12",
       "metric": "25-30"
     },
-    "name_ru": "Суфалак"
+    "name_ru": "Суфалак",
+    "no_image": true
   },
   {
     "id": "thai",
@@ -2869,7 +2919,8 @@
       "imperial": "10-12",
       "metric": "25-30"
     },
-    "name_ru": "Тайский"
+    "name_ru": "Тайский",
+    "no_image": true
   },
   {
     "id": "tonk",
@@ -2925,7 +2976,8 @@
       "imperial": "6-8",
       "metric": "15-20"
     },
-    "name_ru": "Toybob"
+    "name_ru": "Toybob",
+    "no_image": true
   },
   {
     "id": "toyg",
@@ -3043,7 +3095,8 @@
       "imperial": "10-12",
       "metric": "25-30"
     },
-    "name_ru": "Украинский Левкой"
+    "name_ru": "Украинский Левкой",
+    "no_image": true
   },
   {
     "id": "ycho",

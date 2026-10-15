@@ -65,6 +65,9 @@ const API = `https://api.telegram.org/bot${TELEGRAM_TOKEN}`;
 
 let botUsername = "bot";
 
+// Экранирование символов, ломающих HTML-разметку в подписях
+const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
 async function tg(method, params) {
   const res = await fetch(`${API}/${method}`, {
     method: "POST",
@@ -126,11 +129,30 @@ async function imageLoads(url) {
   }
 }
 
-// Отправляет фото, только если оно реально подгрузилось; иначе false
+// Отправляет фото, только если оно реально подгрузилось; иначе false.
+// Если Telegram не может скачать по ссылке — отправляем файлом.
 async function sendPhotoChecked(msg, url, caption) {
   if (!(await imageLoads(url))) return false;
-  await tg("sendPhoto", { chat_id: msg.chat.id, photo: url, caption, parse_mode: "HTML" });
-  return true;
+  try {
+    await tg("sendPhoto", { chat_id: msg.chat.id, photo: url, caption, parse_mode: "HTML" });
+    return true;
+  } catch (e) {
+    console.error(`sendPhoto по ссылке не удался (${e.message}) — отправляю файлом`);
+  }
+  try {
+    const form = new FormData();
+    form.append("chat_id", msg.chat.id);
+    form.append("photo", await (await fetch(url)).blob(), "cat.jpg");
+    form.append("caption", caption);
+    form.append("parse_mode", "HTML");
+    const res = await fetch(`${API}/sendPhoto`, { method: "POST", body: form });
+    const data = await res.json();
+    if (!data.ok) throw new Error(JSON.stringify(data));
+    return true;
+  } catch (e) {
+    console.error(`sendPhoto файлом тоже не удался: ${e.message}`);
+    return false;
+  }
 }
 
 async function cmdHelp(msg) {
@@ -153,7 +175,7 @@ async function cmdMeme(msg) {
   // До 3 попыток: берём кандидата и проверяем, что картинка реально грузится
   for (let attempt = 0; attempt < 3; attempt++) {
     const meme = pool[Math.floor(Math.random() * pool.length)];
-    if (await sendPhotoChecked(msg, meme.url, meme.name)) {
+    if (await sendPhotoChecked(msg, meme.url, esc(meme.name))) {
       await logMessage(botUsername, `[мем: ${meme.id}] ${meme.name}`, "bot");
       return;
     }
@@ -216,44 +238,55 @@ async function cmdCat(msg) {
   }
 
   const shown = await shownMarkers();
-  const fresh = breeds.filter((b) => !shown.has(`кот:${b.id}`));
-  const pool = fresh.length ? fresh : breeds; // все породы показаны — повторяемся
-  const breed = pool[Math.floor(Math.random() * pool.length)];
+  const withImages = breeds.filter((b) => !b.no_image); // у части пород TheCatAPI не отдаёт фото
+  const fresh = withImages.filter((b) => !shown.has(`кот:${b.id}`));
+  let pool = fresh.length ? fresh : withImages.length ? withImages : breeds; // все показаны — повторяемся
 
-  // Переводим название, описание и характер один раз, кэшируем в файле
-  let cached = false;
-  if (!breed.name_ru) {
-    breed.name_ru = await translateToRu(breed.name);
-    cached = true;
-  }
-  if (!breed.description_ru && breed.description) {
-    breed.description_ru = await translateToRu(breed.description);
-    breed.temperament_ru = await translateToRu(breed.temperament);
-    cached = true;
-  }
-  if (cached) saveBreeds(breeds);
-
-  const caption = [
-    `🐱 <b>${breed.name}</b>${breed.name_ru ? ` — ${breed.name_ru}` : ""}${breed.origin ? ` (${breed.origin})` : ""}`,
-    breed.temperament_ru ? `Характер: ${breed.temperament_ru}.` : "",
-    breed.description_ru || breed.description || "",
-  ]
-    .filter(Boolean)
-    .join("\n")
-    .slice(0, 1000);
-
-  // До 3 попыток получить фото, которое реально загружается
+  // До 3 попыток: берём породу, у которой реально найдётся фото
   let sent = false;
+  let breed = null;
   for (let attempt = 0; attempt < 3 && !sent; attempt++) {
+    breed = pool[Math.floor(Math.random() * pool.length)];
+
+    // Переводим название, описание и характер один раз, кэшируем в файле
+    let cached = false;
+    if (!breed.name_ru) {
+      breed.name_ru = await translateToRu(breed.name);
+      cached = true;
+    }
+    if (!breed.description_ru && breed.description) {
+      breed.description_ru = await translateToRu(breed.description);
+      breed.temperament_ru = await translateToRu(breed.temperament);
+      cached = true;
+    }
+    if (cached) saveBreeds(breeds);
+
+    const caption = [
+      `🐱 <b>${esc(breed.name)}</b>${breed.name_ru ? ` — ${esc(breed.name_ru)}` : ""}${breed.origin ? ` (${esc(breed.origin)})` : ""}`,
+      breed.temperament_ru ? `Характер: ${esc(breed.temperament_ru)}.` : "",
+      esc(breed.description_ru || breed.description || ""),
+    ]
+      .filter(Boolean)
+      .join("\n")
+      .slice(0, 1000);
+
+    // Ищем фото породы; у части пород TheCatAPI отдаёт пустой список
     const imgRes = await fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${breed.id}&limit=1`, {
       headers: { "x-api-key": CATAPI_KEY },
     });
     const [img] = await imgRes.json();
-    if (img?.url) sent = await sendPhotoChecked(msg, img.url, caption);
+    if (!img?.url) {
+      breed.no_image = true; // помечаем, чтобы больше не выбирать
+      saveBreeds(breeds);
+      pool = pool.filter((b) => b !== breed);
+      if (!pool.length) break;
+      continue;
+    }
+    sent = await sendPhotoChecked(msg, img.url, caption);
   }
-  if (!sent) await reply(msg, caption); // фото нет — хотя бы текст
+  if (!sent) await reply(msg, "Не нашёл котика с фото 😢 Попробуй ещё раз.");
 
-  await logMessage(botUsername, `[кот: ${breed.id}] ${breed.name}`, "bot");
+  await logMessage(botUsername, `[кот: ${breed?.id}] ${breed?.name}`, "bot");
 }
 
 async function handleMessage(msg) {
