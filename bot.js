@@ -1,17 +1,16 @@
-// Telegram-бот: мемы и котики с описанием породы.
+// Telegram-бот: мемы (imgflip) и котики с описанием породы (TheCatAPI).
 // Логирует переписку в Supabase (таблица chat_messages).
 //
 // Запуск:
 //   node bot.js        (токены читаются из .env или переменных окружения)
 //
 // Команды:
-//   /start, /help       — справка
-//   /meme               — случайный мем (никогда не повторяется)
-//   /addmeme <описание> — подпись к фото: добавить мем в коллекцию (memes.json)
-//   /cat                — случайный котик: фото + порода и факты (TheCatAPI)
+//   /start, /help — справка
+//   /meme         — случайный мем (не повторяются)
+//   /cat          — случайный котик: фото + порода и факты
 //
-// Мемы хранятся локально в memes.json; в базе остаётся только описание
-// в логе переписки — по нему бот и следит, какие мемы уже показывал.
+// Показанные мемы/породы бот вычисляет по собственному логу в базе
+// (маркеры "[мем: id]" и "[кот: id]"), повторов не будет, пока не покажет все.
 
 const MEMES_FILE = require("path").join(__dirname, "memes.json");
 
@@ -25,6 +24,18 @@ function loadMemes() {
 
 function saveMemes(memes) {
   require("fs").writeFileSync(MEMES_FILE, JSON.stringify(memes, null, 2));
+}
+
+async function fetchMemes() {
+  let memes = loadMemes();
+  if (!memes.length) {
+    const res = await fetch("https://api.imgflip.com/get_memes");
+    const data = await res.json();
+    if (!data.success) throw new Error("imgflip: не удалось получить мемы");
+    memes = data.data.memes.map((m) => ({ id: m.id, name: m.name, url: m.url }));
+    saveMemes(memes);
+  }
+  return memes;
 }
 
 // Загрузка .env без зависимостей
@@ -83,10 +94,38 @@ async function logMessage(username, message, senderType) {
   });
 }
 
+// Показанные ботом маркеры вида "[мем: id]" / "[кот: id]" — из лога в базе
+async function shownMarkers() {
+  const rows = await (await sb("chat_messages?select=message&sender_type=eq.bot&limit=10000")).json();
+  return new Set(rows.map((r) => (r.message.match(/^\[(мем|кот): ([\w-]+)\]/) || []).slice(1).join(":")).filter(Boolean));
+}
+
 // Отправляет ответ пользователю и логирует его
 async function reply(msg, text) {
   await tg("sendMessage", { chat_id: msg.chat.id, text });
   await logMessage(botUsername, text, "bot");
+}
+
+// Проверяет, что картинка реально загружается (HEAD, при отказе — GET)
+async function imageLoads(url) {
+  try {
+    let res = await fetch(url, { method: "HEAD" });
+    if (!res.ok || !(res.headers.get("content-type") || "").startsWith("image")) {
+      res = await fetch(url);
+      if (!res.ok || !(res.headers.get("content-type") || "").startsWith("image")) return false;
+      await res.body.cancel();
+    }
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+// Отправляет фото, только если оно реально подгрузилось; иначе false
+async function sendPhotoChecked(msg, url, caption) {
+  if (!(await imageLoads(url))) return false;
+  await tg("sendPhoto", { chat_id: msg.chat.id, photo: url, caption, parse_mode: "HTML" });
+  return true;
 }
 
 async function cmdHelp(msg) {
@@ -96,9 +135,25 @@ async function cmdHelp(msg) {
       "Я умею:",
       "• /meme — случайный мем (не повторяются)",
       "• /cat — случайный котик: порода и интересные факты",
-      "• пришли фото с подписью /addmeme — добавить мем",
     ].join("\n")
   );
+}
+
+async function cmdMeme(msg) {
+  const memes = await fetchMemes();
+  const shown = await shownMarkers();
+  const fresh = memes.filter((m) => !shown.has(`мем:${m.id}`));
+  const pool = fresh.length ? fresh : memes; // все показаны — начинаем повторять
+
+  // До 3 попыток: берём кандидата и проверяем, что картинка реально грузится
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const meme = pool[Math.floor(Math.random() * pool.length)];
+    if (await sendPhotoChecked(msg, meme.url, meme.name)) {
+      await logMessage(botUsername, `[мем: ${meme.id}] ${meme.name}`, "bot");
+      return;
+    }
+  }
+  await reply(msg, "Картинки мемов сейчас не загружаются 😢 Попробуй позже.");
 }
 
 // --- Котики (TheCatAPI, https://thecatapi.com) ---
@@ -118,6 +173,29 @@ function saveBreeds(breeds) {
   require("fs").writeFileSync(BREEDS_FILE, JSON.stringify(breeds, null, 2));
 }
 
+// Перевод с английского через MyMemory (бесплатно, без ключа), по кускам ~400 символов
+async function translateToRu(text) {
+  if (!text) return "";
+  const chunks = [];
+  let rest = text;
+  while (rest.length > 400) {
+    let cut = rest.lastIndexOf(". ", 400);
+    if (cut < 100) cut = rest.lastIndexOf(" ", 400);
+    chunks.push(rest.slice(0, cut + 1));
+    rest = rest.slice(cut + 1).trim();
+  }
+  chunks.push(rest);
+
+  const out = [];
+  for (const c of chunks) {
+    const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(c)}&langpair=en|ru`;
+    const res = await fetch(url);
+    const data = await res.json();
+    out.push(data.responseData?.translatedText || c);
+  }
+  return out.join(" ");
+}
+
 async function cmdCat(msg) {
   if (!CATAPI_KEY) {
     await reply(msg, "Котики пока спят 😴 Попроси владельца добавить CATAPI_KEY в .env (бесплатный ключ на thecatapi.com)");
@@ -132,65 +210,39 @@ async function cmdCat(msg) {
     saveBreeds(breeds);
   }
 
-  // Породы, которых ещё не показывали (по логу бота "[кот: id]")
-  const rows = await (await sb("chat_messages?select=message&sender_type=eq.bot&limit=10000")).json();
-  const shown = new Set(rows.map((r) => (r.message.match(/^\[кот: ([\w-]+)\]/) || [])[1]).filter(Boolean));
-  const fresh = breeds.filter((b) => !shown.has(b.id));
+  const shown = await shownMarkers();
+  const fresh = breeds.filter((b) => !shown.has(`кот:${b.id}`));
   const pool = fresh.length ? fresh : breeds; // все породы показаны — повторяемся
   const breed = pool[Math.floor(Math.random() * pool.length)];
 
-  const imgRes = await fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${breed.id}&limit=1`, {
-    headers: { "x-api-key": CATAPI_KEY },
-  });
-  const [img] = await imgRes.json();
+  // Переводим описание и характер один раз, кэшируем в файле
+  if (!breed.description_ru && breed.description) {
+    breed.description_ru = await translateToRu(breed.description);
+    breed.temperament_ru = await translateToRu(breed.temperament);
+    saveBreeds(breeds);
+  }
 
   const caption = [
-    `🐱 ${breed.name}${breed.origin ? ` (${breed.origin})` : ""}`,
-    breed.temperament ? `Характер: ${breed.temperament}.` : "",
-    breed.description || "",
+    `🐱 <b>${breed.name}</b>${breed.origin ? ` (${breed.origin})` : ""}`,
+    breed.temperament_ru ? `Характер: ${breed.temperament_ru}.` : "",
+    breed.description_ru || breed.description || "",
   ]
     .filter(Boolean)
     .join("\n")
     .slice(0, 1000);
 
-  if (img?.url) {
-    await tg("sendPhoto", { chat_id: msg.chat.id, photo: img.url, caption });
-  } else {
-    await reply(msg, caption);
+  // До 3 попыток получить фото, которое реально загружается
+  let sent = false;
+  for (let attempt = 0; attempt < 3 && !sent; attempt++) {
+    const imgRes = await fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${breed.id}&limit=1`, {
+      headers: { "x-api-key": CATAPI_KEY },
+    });
+    const [img] = await imgRes.json();
+    if (img?.url) sent = await sendPhotoChecked(msg, img.url, caption);
   }
+  if (!sent) await reply(msg, caption); // фото нет — хотя бы текст
+
   await logMessage(botUsername, `[кот: ${breed.id}] ${breed.name}`, "bot");
-}
-
-async function cmdMeme(msg) {
-  // Уже показанные мемы — по логу бота в базе: сообщения "[мем #N] ..."
-  const rows = await (await sb("chat_messages?select=message&sender_type=eq.bot&limit=10000")).json();
-  const shownIds = new Set(
-    rows.map((r) => (r.message.match(/^\[мем #(\d+)\]/) || [])[1]).filter(Boolean).map(Number)
-  );
-
-  const fresh = loadMemes().filter((m) => !shownIds.has(m.id));
-  if (!fresh.length) {
-    await reply(msg, "Мемы закончились 😢 Пришли фото с подписью /addmeme — добавлю новые!");
-    return;
-  }
-
-  const meme = fresh[Math.floor(Math.random() * fresh.length)];
-  await tg("sendPhoto", { chat_id: msg.chat.id, photo: meme.file_id, caption: meme.description || undefined });
-  await logMessage(botUsername, `[мем #${meme.id}] ${meme.description || "(без описания)"}`, "bot");
-}
-
-async function cmdAddMeme(msg, user) {
-  const photo = msg.photo?.[msg.photo.length - 1];
-  if (!photo) {
-    await reply(msg, "Пришли фото (не файлом) с подписью /addmeme и парой слов описания");
-    return;
-  }
-  const description = (msg.caption || "").replace(/^\/addmeme(@\w+)?\s*/i, "").trim();
-  const memes = loadMemes();
-  const id = (memes[memes.length - 1]?.id || 0) + 1;
-  memes.push({ id, file_id: photo.file_id, description });
-  saveMemes(memes);
-  await reply(msg, `✅ Мем #${id} добавлен! Описание: ${description || "(нет)"}`);
 }
 
 async function handleMessage(msg) {
@@ -205,13 +257,12 @@ async function handleMessage(msg) {
     if (cmd === "/start" || cmd === "/help") return cmdHelp(msg);
     if (cmd === "/meme") return cmdMeme(msg);
     if (cmd === "/cat") return cmdCat(msg);
-    if (cmd === "/addmeme") return cmdAddMeme(msg, user);
 
     if (!msg.text) {
       return reply(msg, "Я понимаю только команды. Список: /help");
     }
 
-    await reply(msg, "Я понимаю только команды:\n/meme — мем\n/cat — котик\n/addmeme — добавить мем");
+    await reply(msg, "Я понимаю только команды:\n/meme — мем\n/cat — котик");
   } catch (e) {
     console.error("Ошибка обработки:", e.message);
     await tg("sendMessage", { chat_id: msg.chat.id, text: "Что-то пошло не так 😢 Попробуй ещё раз." });
@@ -241,7 +292,6 @@ async function poll(offset = 0) {
     commands: [
       { command: "meme", description: "Случайный мем (не повторяются)" },
       { command: "cat", description: "Случайный котик: порода и факты" },
-      { command: "addmeme", description: "Подпись к фото — добавить мем" },
       { command: "help", description: "Справка" },
     ],
   });
