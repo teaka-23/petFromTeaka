@@ -48,7 +48,7 @@ try {
 } catch { /* .env не обязателен */ }
 
 const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-if (!TELEGRAM_TOKEN) {
+if (require.main === module && !TELEGRAM_TOKEN) {
   console.error("Укажите TELEGRAM_BOT_TOKEN в .env или окружении");
   process.exit(1);
 }
@@ -105,7 +105,13 @@ async function logMessage(username, message, senderType) {
 async function shownMarkers() {
   if (!LOG_TO_DB) return new Set(); // без лога в базе неоткуда узнать показанное
   const rows = await (await sb("chat_messages?select=message&sender_type=eq.bot&limit=10000")).json();
-  return new Set(rows.map((r) => (r.message.match(/^\[(мем|кот): ([\w-]+)\]/) || []).slice(1).join(":")).filter(Boolean));
+  return new Set(rows.map((r) => parseMarker(r.message)).filter(Boolean));
+}
+
+// Разбирает маркер вида "[мем: id]" в строку "мем:id"; не маркер — null
+function parseMarker(message) {
+  const m = message.match(/^\[(мем|кот): ([\w-]+)\]/);
+  return m ? `${m[1]}:${m[2]}` : null;
 }
 
 // Отправляет ответ пользователю и логирует его
@@ -200,18 +206,25 @@ function saveBreeds(breeds) {
   require("fs").writeFileSync(BREEDS_FILE, JSON.stringify(breeds, null, 2));
 }
 
-// Перевод с английского через MyMemory (бесплатно, без ключа), по кускам ~400 символов
-async function translateToRu(text) {
-  if (!text) return "";
+// Нарезает текст на куски не длиннее limit, по границе предложения или слова
+function splitChunks(text, limit = 400) {
   const chunks = [];
   let rest = text;
-  while (rest.length > 400) {
-    let cut = rest.lastIndexOf(". ", 400);
-    if (cut < 100) cut = rest.lastIndexOf(" ", 400);
+  while (rest.length > limit) {
+    let cut = rest.lastIndexOf(". ", limit);
+    if (cut < 100) cut = rest.lastIndexOf(" ", limit);
+    if (cut < 0) cut = limit - 1; // пробелов нет — режем посередине слова
     chunks.push(rest.slice(0, cut + 1));
     rest = rest.slice(cut + 1).trim();
   }
   chunks.push(rest);
+  return chunks;
+}
+
+// Перевод с английского через MyMemory (бесплатно, без ключа), по кускам ~400 символов
+async function translateToRu(text) {
+  if (!text) return "";
+  const chunks = splitChunks(text);
 
   const out = [];
   for (const c of chunks) {
@@ -329,16 +342,20 @@ async function poll(offset = 0) {
   await poll(offset);
 }
 
-(async () => {
-  const me = await tg("getMe", {});
-  botUsername = me.username || "bot";
-  await tg("setMyCommands", {
-    commands: [
-      { command: "meme", description: "Случайный мем" },
-      { command: "cat", description: "Случайный котик: порода и факты" },
-      { command: "help", description: "Справка" },
-    ],
-  });
-  console.log(`Бот @${botUsername} запущен, ожидаю сообщения...`);
-  await poll(0);
-})();
+if (require.main === module) {
+  (async () => {
+    const me = await tg("getMe", {});
+    botUsername = me.username || "bot";
+    await tg("setMyCommands", {
+      commands: [
+        { command: "meme", description: "Случайный мем" },
+        { command: "cat", description: "Случайный котик: порода и факты" },
+        { command: "help", description: "Справка" },
+      ],
+    });
+    console.log(`Бот @${botUsername} запущен, ожидаю сообщения...`);
+    await poll(0);
+  })();
+}
+
+module.exports = { esc, parseMarker, splitChunks };
